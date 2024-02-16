@@ -1,12 +1,17 @@
-import Navbar from './assets/Navbar';
+import Navbar from './components/Navbar';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home'
 import './App.css';
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <h1>NYC Event Map</h1>
-    </div>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  </BrowserRouter>
   )
 }
 
