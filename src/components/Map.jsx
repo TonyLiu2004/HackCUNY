@@ -31,13 +31,14 @@ function Map(){
                         const location = results[0].geometry.location;
                         // console.log('Valid address:', formattedAddress);
                         // console.log('location coordinates:', location.lat(), location.lng());
-                        console.log(post);
+                        console.log('post',post);
                         const newMarker = {
                           position: {
                             lat: location.lat(),
                             lng: location.lng(),
                           },
                           title: formattedAddress,
+                          name: post.event,
                           description: post.description,
                           time: post.eventTime,
                         };
@@ -154,7 +155,8 @@ function Map(){
                         options={infoWindowOptions}
                         >
                         <div>
-                            <p style={{ color: 'black', fontWeight:'bold'}}>{open.title}</p>
+                            <p style={{ color: 'black', fontWeight:'bold'}}>{open.name}</p>
+                            <p style={{ color: 'black'}}>{open.title}</p>
                             <p>{formatTime(open.time)}</p>
                             <p>{open.description}</p>
                         </div>
