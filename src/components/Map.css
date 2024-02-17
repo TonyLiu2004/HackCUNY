@@ -8,4 +8,72 @@
     width: 80vw;
     margin:0 auto;
     height: 80vh;
+    margin-left:10vw;
+    padding:10px;
+}
+
+#routing-container{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(146,144,195);
+    border-radius: 7px;
+    padding:10px;
+    width:45vw;
+    margin:0 auto;
+    flex-wrap: wrap;
+    margin-top:20px;
+    margin-bottom:15px;
+    padding-bottom:0px;
+}
+
+#route-information{
+    display:flex;
+    margin:0 auto;
+    width:45vw;
+    padding-left:10px;
+    flex-wrap: wrap;
+    align-items: left;
+}
+
+#input-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right:5px;
+}
+
+#origin-autocomplete,
+#destination-autocomplete{
+    background-color: white;
+    border: 1px solid grey;
+    color:black;
+    height: 25px;
+    border-radius:6px;
+    margin-left:5px;
+    margin-right:5px;
+    padding: 3px 5px 2px 10px;
+    font-size:15px;
+}
+
+#origin-autocomplete:hover,
+#destination-autocomplete:hover {
+    border-color: green;
+}
+#origin-autocomplete:focus,
+#destination-autocomplete:focus {
+    border:2px solid green;
+    border-color: green;
+}
+
+.route-button{
+    margin-left:5px;
+    margin-right:5px;
+    font-size:15px;
+    padding:8px;
+    border-radius:6px;
+}
+
+#calculate-route-button{
+    background-color: rgb(12, 141, 12);
 }
