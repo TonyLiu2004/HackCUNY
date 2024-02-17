@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
-
+import './ReadPosts.css'
 function ReadPost() {
   const [posts, setPosts] = useState([]);
 
@@ -25,7 +25,7 @@ function ReadPost() {
   }, []);
 
   return (
-    <div>
+    <div id = "main-container">
       <h2>Posts</h2>
       {posts.map(post => (
         <PostCard key={post.id} post={post} />

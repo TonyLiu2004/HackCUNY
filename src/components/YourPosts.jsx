@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
 import { useAuth } from './UserAuth';
+import './YourPosts.css';
 
 function YourPosts() {
     const { authUser } = useAuth();
