@@ -23,7 +23,7 @@ function Map(){
     }
     return(
         <div id="main-container">
-            <p>Map</p>
+            <p style={{color:'white'}}>Map</p>
             <div id="map-container">
                 <GoogleMap 
                     center={center} 
