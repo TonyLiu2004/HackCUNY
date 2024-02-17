@@ -8,7 +8,7 @@ export default function LeftBar() {
     }
 
     return (
-        <div classname = 'leftBar'>
+        <div className = 'leftBar'>
             <div className="left-container">
                 <div className="menu">
                     <Link to=''>
