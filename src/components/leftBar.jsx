@@ -4,18 +4,18 @@ import Profile from './profile';
 
 export default function LeftBar() {
     function createPost () {
-
+        window.location.href = '/create-post'
     }
+
     return (
         <div classname = 'leftBar'>
             <div className="left-container">
                 <div className="menu">
-                    {/* link to profile id*/} 
                     <Link to=''>
                         <Profile/>
                     </Link>
 
-                    <Link to='/'>
+                    <Link to='/your-posts'>
                         {/* menu item 1*/} 
                         <div className="item">
                             <img src="" alt="" />
@@ -23,7 +23,7 @@ export default function LeftBar() {
                         </div>
                     </Link>
 
-                    <Link to='/'>
+                    <Link to='/bookmarked'>
                         {/* menu item 2*/} 
                         <div className="item">
                             <img src="" alt="" />
