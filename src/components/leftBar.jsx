@@ -1,17 +1,18 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+import Profile from './profile';
 
 export default function LeftBar() {
+    function createPost () {
+
+    }
     return (
         <div classname = 'leftBar'>
             <div className="left-container">
                 <div className="menu">
                     {/* link to profile id*/} 
                     <Link to=''>
-                        <div className="user">
-                            {/* img of current user (import current user component), have placeholder img for now*/} 
-                            <img src="" alt="" />
-                            <h4>Username</h4>
-                        </div>
+                        <Profile/>
                     </Link>
 
                     <Link to='/'>
@@ -40,7 +41,9 @@ export default function LeftBar() {
 
                 </div>
                     <hr />
-                <div className="create-btn"></div>
+                <div className="create-btn">
+                    <button onClick={createPost}>Create Post</button>
+                </div>
             </div>
         </div>
     )

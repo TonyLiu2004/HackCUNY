@@ -7,19 +7,23 @@ import Map from './components/Map'
 import SignIn from './components/SignIn'
 import './App.css';
 import SignUp from './components/Signup';
+import { UserAuth } from './components/UserAuth';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/map" element={<Map />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
-  </BrowserRouter>
+
+      <UserAuth>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </UserAuth>
+    </BrowserRouter>
   )
 }
 

@@ -50,7 +50,7 @@ const SignUp = () => {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     ></input>
-
+                    <p>Have an account? <a href='/signin'>Sign In </a></p>
                     {error && <p className="error-message">{error}</p>}
 
                     <button type="submit">Sign Up</button>
