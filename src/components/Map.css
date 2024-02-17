@@ -1,0 +1,10 @@
+#main-container{
+    width:100vw;
+    margin:0 auto;
+}
+
+#map-container{
+    width: 80vw;
+    margin:0 auto;
+    height: 80vh;
+}
