@@ -5,38 +5,40 @@ import PostCard from "./PostCard";
 import { useAuth } from './UserAuth';
 
 function YourPosts() {
-  const { authUser } = useAuth(); // Access current user
-  const [posts, setPosts] = useState([]);
+    const { authUser } = useAuth();
+    const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(database, "posts"));
-        const postData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(database, "posts"));
+                const postData = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
 
-        // Filter posts based on userEmail matching currentUser.email or 'Guest'
-        const filteredPosts = postData.filter(post => post.userEmail === (authUser ? authUser.email : 'Guest'));
-        
-        setPosts(filteredPosts);
-      } catch (error) {
-        console.error("Error fetching posts: ", error);
-      }
-    };
+                const filteredPosts = postData.filter(post => 
+                    post.userEmail === (authUser ? authUser.email : 'Guest'));
 
-    fetchPosts();
-  }, [authUser]); // Update posts when authUser changes
+                setPosts(filteredPosts);
+            } catch (error) {
+                console.error("Error fetching posts: ", error);
+            }
+        };
 
-  return (
-    <div>
-      <h2>Your Posts</h2>
-      {posts.map(post => (
-        <PostCard key={post.id} post={post} />
-      ))}
-    </div>
-  );
+        fetchPosts();
+    }, [authUser]);
+    return (
+        <div className="your-posts-page">
+            <div>
+                <h2>Your Posts</h2>
+                {posts.map(post => (
+                    <PostCard key={post.id} post={post} />
+                ))}
+            </div>
+        </div>
+
+    );
 }
 
 export default YourPosts;
