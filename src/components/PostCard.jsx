@@ -14,13 +14,27 @@ function PostCard({ post }) {
 
   return (
     <div className="post-card">
-      <div>User Email: {userEmail}</div>
-      <div>Event: {event}</div>
-      <div>Location: {location}</div>
-      {eventTime && <div>Event Time: {new Date(eventTime).toLocaleString()}</div>}
-      <img className='post-image' src={imageURL} alt="Event" />
-      <div>Description: {description}</div>
-      <div>Date Posted: {new Date(datePosted).toLocaleString()}</div>
+      <div className = "user-content"> {userEmail}</div>
+      <div className = "img-box">
+        <img className='post-image' src={imageURL} alt="Event" />
+      </div>
+      <div className = "text-content">
+        <span class = "bold">Event: </span> 
+        {event}
+        </div>
+      <div className = "text-content">
+        <span className = "bold">Location: </span> 
+        {location}
+      </div>
+      {eventTime && <div className = "text-content"><span className = "bold">Event Time: </span> {new Date(eventTime).toLocaleString()}</div>}
+      <div className = "text-content">
+        <span className = "bold">Description: </span> 
+        {description}
+      </div>
+      <div className = "text-content">
+        <span className = "bold">Date Posted: </span>
+        {new Date(datePosted).toLocaleString()}
+        </div>
     </div>
   );
 }
