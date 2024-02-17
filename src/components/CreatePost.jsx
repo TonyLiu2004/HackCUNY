@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { storage, database } from "../firebase";
+import { storage, database, auth } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 import { useAuth } from './UserAuth'
 
 function CreatePost() {
     const { authUser } = useAuth();
-
-    // Set user_id state conditionally based on authUser
-    const [user_id, setUser_id] = useState(authUser ? authUser.uid : "Guest");
-
+    const [userEmail, setUserEmail] = useState("Guest"); 
     const [image, setImage] = useState(null);
     const [event, setEvent] = useState("");
     const [location, setLocation] = useState("");
@@ -63,7 +60,7 @@ function CreatePost() {
         const datePosted = new Date().toISOString();
 
         await addDoc(collection(database, "posts"), {
-            user_id, 
+            userEmail: authUser.email,
             event,
             location,
             description,
@@ -106,7 +103,6 @@ function CreatePost() {
                     id="eventTimeInput"
                     value={eventTime}
                     onChange={(e) => setEventTime(e.target.value)}
-                    required
                 />
                 <label htmlFor="descriptionInput">Description:</label>
                 <input

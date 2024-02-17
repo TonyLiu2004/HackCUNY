@@ -9,12 +9,10 @@ import './App.css';
 import SignUp from './components/Signup';
 import { UserAuth } from './components/UserAuth';
 import CreatePost from './components/CreatePost';
-import ReadPost from './components/ReadPosts';
 
 function App() {
   return (
     <BrowserRouter>
-
       <UserAuth>
         <Navbar />
         <Routes>
@@ -25,7 +23,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path='/create-post' element={<CreatePost/>} />
         </Routes>
-        <ReadPost/>
       </UserAuth>
     </BrowserRouter>
   )
