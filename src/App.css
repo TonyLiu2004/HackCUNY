@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+main {
+  display: grid;
+  grid-template-columns: 17% 80%;
+  gap: 3%;
+  width: 100%;
+}
