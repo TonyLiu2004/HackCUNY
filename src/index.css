@@ -67,3 +67,20 @@ a:hover {
   text-decoration: underline;
 }
 
+/** Profile**/
+.profile-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/** Create Post **/ 
+.create-form{
+  display: flex;
+  flex-direction: column;
+}

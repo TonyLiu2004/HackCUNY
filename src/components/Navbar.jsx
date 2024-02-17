@@ -1,16 +1,27 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useAuth } from './UserAuth'
 import "./Navbar.css";
 
 function Navbar() {
-    return(
+    const { authUser, userSignOut } = useAuth();
+
+    return (
         <nav id="nav-container">
             <Link className='navLink' to='/'>Home</Link>
             <div id="nav-center">
                 <Link className='navLink' to='/events'>Events</Link>
                 <Link className='navLink' to='/map'>Map</Link>
             </div>
-            <Link className='navLink' to='/signin'>Sign In</Link>
+
+            {authUser ? (
+                <>
+                    <Link className='navLink' onClick={userSignOut}>Sign Out</Link>
+                </>
+            ) : (
+                <Link className='navLink' to='/signin'>Sign In</Link>
+            )}
+
         </nav>
     )
 }
