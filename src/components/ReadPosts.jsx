@@ -54,6 +54,7 @@ function ReadPost() {
           <option value="asc">Ascending</option>
         </select>
       </div>
+      <br/>
       {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
