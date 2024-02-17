@@ -1,0 +1,46 @@
+.create-post-container {
+    width: 100vw;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+}
+
+.create-post-container h1{
+    text-shadow: 5px 5px #33389a;
+}
+.create-post-container form{
+    width: 600px;
+    margin:0 auto;
+    align-items: center; 
+    border-radius: 25px;
+    background-color: #646cff;
+    box-shadow: 10px 10px rgb(51, 27, 175);
+    padding: 10px;
+
+}
+.create-post-container label{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.create-post-container input[type = "text"] {
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 30px;
+
+}
+
+.create-post-container input[type = "datetime-local"], 
+.create-post-container input[type = "file"] {
+    margin-bottom: 20px;
+}
+
+.create-post-container input[type = "submit"] {
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    background-color: #33389a;
+}

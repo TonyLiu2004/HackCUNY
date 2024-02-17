@@ -3,6 +3,7 @@ import { storage, database, auth } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 import { useAuth } from './UserAuth'
+import './CreatePost.css'
 
 function CreatePost() {
     const { authUser } = useAuth();
@@ -75,6 +76,7 @@ function CreatePost() {
 
     return (
         <div className="create-post-container">
+            <h1>Create Post</h1>
             <form className="create-form" onSubmit={handleSubmit}>
                 <label htmlFor="eventInput">Event:</label>
                 <input
