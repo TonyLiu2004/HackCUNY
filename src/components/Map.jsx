@@ -1,12 +1,14 @@
 import {React, useState} from 'react'
 import './Map.css'
-import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { useJsApiLoader, GoogleMap, Marker, InfoWindow, Autocomplete } from '@react-google-maps/api';
 
+const libraries = ['places']; 
 function Map(){
     const center = {lat: 40.7128, lng: -74.0060};
     const API_KEY = import.meta.env.VITE_REACT_GOOGLE_MAPS_KEY;
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: API_KEY,
+        libraries: libraries,
 
     })
     const infoWindowOptions = {
@@ -21,6 +23,25 @@ function Map(){
     if(!isLoaded){
         return <div>Loading...</div>
     }
+
+    const handleSubmit = () => {
+        let address = document.getElementById('location-autocomplete').value;
+        if(!address){
+            alert("Please enter address");
+        }
+
+        const geocoder = new window.google.maps.Geocoder();
+        geocoder.geocode({ address: address }, (results, status) => {
+            if (status === 'OK' && results.length > 0) {
+              const formattedAddress = results[0].formatted_address;
+              console.log('Valid address:', formattedAddress);
+              // Perform any additional actions with the valid address
+            } else {
+              console.log('Invalid address');
+            }
+          });
+    };
+
     return(
         <div id="main-container">
             <p style={{color:'white'}}>Map</p>
@@ -41,6 +62,12 @@ function Map(){
                         </InfoWindow>
                     )}
                 </GoogleMap>
+            </div>
+            <div>
+                <Autocomplete>
+                    <input id="location-autocomplete" type='text' placeholder='location'></input>
+                </Autocomplete>
+                    <button onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     )
