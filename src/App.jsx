@@ -10,6 +10,7 @@ import SignUp from './components/Signup';
 import { UserAuth } from './components/UserAuth';
 import CreatePost from './components/CreatePost';
 import YourPosts from './components/YourPosts'
+import UpdatePost from './components/UpdatePost';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path='/create-post' element={<CreatePost/>} />
           <Route path='/your-posts' element={<YourPosts/>} />
+          <Route path='/edit/:id' element={<UpdatePost />} />
         </Routes>
       </UserAuth>
     </BrowserRouter>
