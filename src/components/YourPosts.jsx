@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
 import { useAuth } from './UserAuth';
@@ -9,6 +9,7 @@ function YourPosts() {
     const { authUser } = useAuth();
     const [posts, setPosts] = useState([]);
     const [sortBy, setSortBy] = useState({ field: "datePosted", order: "desc" }); 
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
@@ -58,6 +59,20 @@ function YourPosts() {
         setSortBy({ ...sortBy, [name]: value }); 
     };
 
+    const handleDeletePost = async (postId) => {
+        try {
+            await deleteDoc(doc(database, "posts", postId));
+            setPosts(posts.filter(post => post.id !== postId));
+            console.log("Post deleted successfully!");
+        } catch (error) {
+            console.error("Error deleting post:", error);
+        }
+    };
+
+    const handleEditPost = (postId) => {
+        window.location.href = `/edit/${postId}`;
+    };
+
     return (
         <div className="your-posts-page">
             {/** <LeftBar /> **/}
@@ -68,7 +83,6 @@ function YourPosts() {
                     <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
                         <option value="datePosted">Date Posted</option>
                         <option value="eventTime">Event Time</option>
-
                     </select>
                     <select name="order" value={sortBy.order} onChange={handleSortChange}>
                         <option value="desc">Descending</option>
@@ -76,7 +90,11 @@ function YourPosts() {
                     </select>
                 </div>
                 {posts.map(post => (
-                    <PostCard key={post.id} post={post} />
+                    <div key={post.id}>
+                        <PostCard post={post} />
+                        <button onClick={() => handleEditPost(post.id)}>Edit</button>
+                        <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+                    </div>
                 ))}
             </div>
         </div>
