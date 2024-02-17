@@ -4,8 +4,16 @@ import { useJsApiLoader, GoogleMap, Marker, InfoWindow, Autocomplete } from '@re
 
 const libraries = ['places']; 
 function Map(){
-    const center = {lat: 40.7128, lng: -74.0060};
+    const center = {
+        position: {
+        lat: 40.7128,
+        lng: -74.0060,
+        },
+        title: 'center',
+    };
+    const mapCenter = {lat: 40.7128, lng: -74.0060};
     const API_KEY = import.meta.env.VITE_REACT_GOOGLE_MAPS_KEY;
+    const [markers, setMarkers] = useState([]);
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: API_KEY,
         libraries: libraries,
@@ -34,8 +42,19 @@ function Map(){
         geocoder.geocode({ address: address }, (results, status) => {
             if (status === 'OK' && results.length > 0) {
               const formattedAddress = results[0].formatted_address;
+              const location = results[0].geometry.location;
               console.log('Valid address:', formattedAddress);
-              // Perform any additional actions with the valid address
+              console.log('location coordinates:', location.lat(), location.lng());
+              
+              const newMarker = {
+                position: {
+                  lat: location.lat(),
+                  lng: location.lng(),
+                },
+                title: formattedAddress,
+              };
+        
+              setMarkers([...markers, newMarker]);
             } else {
               console.log('Invalid address');
             }
@@ -47,7 +66,7 @@ function Map(){
             <p style={{color:'white'}}>Map</p>
             <div id="map-container">
                 <GoogleMap 
-                    center={center} 
+                    center={mapCenter} 
                     zoom={12} 
                     mapContainerStyle={{width: '100%', height: '100%'}}
                     options= {{
@@ -55,12 +74,24 @@ function Map(){
                     }}
                 >
                     {/* Child components, such as markers, info windows, etc. */}
-                    <Marker position={center} title="idk" onClick={() => setOpen(true)}/>
-                    {open && (
-                        <InfoWindow onCloseClick={() => setOpen(false)} position={center} options={infoWindowOptions}>
-                            <p style={{color:'black'}}>Center</p>
+                    <Marker position={center.position} title="center" onClick={() => setOpen(center)}/>
+                    {markers.map((marker, index) => (
+                        <Marker
+                        key={index}
+                        position={marker.position}
+                        title={marker.title}
+                        onClick={() => setOpen(marker)}
+                        />
+                    ))}
+                    {open && 
+                        <InfoWindow
+                        onCloseClick={() => setOpen(false)}
+                        position={open.position}
+                        options={infoWindowOptions}
+                        >
+                        <p style={{ color: 'black' }}>{open.title}</p>
                         </InfoWindow>
-                    )}
+                    }
                 </GoogleMap>
             </div>
             <div>
