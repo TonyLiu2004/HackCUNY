@@ -1,12 +1,17 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, useRef } from 'react'
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { database } from "../firebase";
 import './Map.css'
-import { useJsApiLoader, GoogleMap, Marker, InfoWindow, Autocomplete } from '@react-google-maps/api';
+import { useJsApiLoader, GoogleMap, Marker, InfoWindow, Autocomplete, DirectionsRenderer } from '@react-google-maps/api';
 
 const libraries = ['places']; 
 function Map(){
     const [posts, setPosts] = useState([]);
+    const [directions, setDirections] = useState(null);
+    const [distance, setDistance] = useState('');
+    const [duration, setDuration] = useState('');
+    const originRef = useRef();
+    const destinationRef = useRef();
     const [markers, setMarkers] = useState([]);
     useEffect(() => {
         const fetchPosts = async () => {
@@ -31,7 +36,7 @@ function Map(){
                         const location = results[0].geometry.location;
                         // console.log('Valid address:', formattedAddress);
                         // console.log('location coordinates:', location.lat(), location.lng());
-                        console.log('post',post);
+                        // console.log('post',post);
                         const newMarker = {
                           position: {
                             lat: location.lat(),
@@ -93,7 +98,7 @@ function Map(){
     }
 
     const handleSubmit = () => {
-        let address = document.getElementById('location-autocomplete').value;
+        let address = document.getElementById('origin-autocomplete').value;
         if(!address){
             alert("Please enter address");
         }
@@ -103,18 +108,10 @@ function Map(){
             if (status === 'OK' && results.length > 0) {
               const formattedAddress = results[0].formatted_address;
               const location = results[0].geometry.location;
-              console.log('Valid address:', formattedAddress);
-              console.log('location coordinates:', location.lat(), location.lng());
+            //   console.log('Valid address:', formattedAddress);
+            //   console.log('location coordinates:', location.lat(), location.lng());
               
-              const newMarker = {
-                position: {
-                  lat: location.lat(),
-                  lng: location.lng(),
-                },
-                title: formattedAddress,
-              };
-        
-              setMarkers([...markers, newMarker]);
+            
             } else {
               console.log('Invalid address');
             }
@@ -126,9 +123,47 @@ function Map(){
         const formattedDate = new Date(dateTimeString).toLocaleDateString('en-US', options);
         return formattedDate;
       }
+
+    async function calculateRoute(){
+        if(originRef.current.value === '' || destinationRef.current.value === ''){
+            return;
+        }
+        const directionsService = new google.maps.DirectionsService();
+        const results = await directionsService.route({
+            origin: originRef.current.value,
+            destination: destinationRef.current.value,
+            travelMode: google.maps.TravelMode.DRIVING
+        })
+        setDirections(results);
+        setDistance(results.routes[0].legs[0].distance.text);
+        setDuration(results.routes[0].legs[0].duration.text);
+    }
+
+    function clearRoute(){
+        setDirections(null);
+        setDistance('');
+        setDuration('');
+        originRef.current.value = '';
+        destinationRef.current.value = '';
+    }
     return(
         <div id="main-container">
-            <p style={{color:'white'}}>Map</p>
+            <div id="routing-container">
+                <div id="input-container">
+                    <Autocomplete>
+                        <input id="origin-autocomplete" type='text' placeholder='origin' ref = {originRef}></input>
+                    </Autocomplete>
+                    <Autocomplete>
+                        <input id="destination-autocomplete" type='text' placeholder='destination' ref = {destinationRef}></input>
+                    </Autocomplete>
+                    <button className="route-button" id="calculate-route-button" onClick={calculateRoute}>Calculate Route</button>
+                    <button className="route-button" onClick={clearRoute}>Clear</button>
+                </div>
+                <div id="route-information">
+                    <p style={{marginRight:"100px"}}>Distance: {distance}</p>
+                    <p>Duration: {duration}</p>
+                </div>
+            </div>
             <div id="map-container">
                 <GoogleMap 
                     center={mapCenter} 
@@ -162,13 +197,8 @@ function Map(){
                         </div>
                         </InfoWindow>
                     }
+                    {directions && <DirectionsRenderer directions={directions} />}
                 </GoogleMap>
-            </div>
-            <div>
-                <Autocomplete>
-                    <input id="location-autocomplete" type='text' placeholder='location'></input>
-                </Autocomplete>
-                    <button onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     )
