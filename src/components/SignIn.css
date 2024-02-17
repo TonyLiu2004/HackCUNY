@@ -16,8 +16,8 @@
     margin:0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    align-items: center; 
+    justify-content: center; 
 }
 .sign-in-container h1 {
     text-align: center;
@@ -26,8 +26,8 @@
 }
 
 .sign-in-container form {
-    width: 100%; /* Ensure form takes full width */
-    max-width: 400px; /* Adjust as needed */
+    width: 100%; 
+    max-width: 400px; 
 }
 
 .sign-in-container input[type="email"],
@@ -57,16 +57,6 @@
 .sign-in-container p {
     margin-top: 10px;
     text-align: center;
-}
-
-.sign-in-container a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.sign-in-container a:hover {
-    text-decoration: underline;
 }
 
 p {

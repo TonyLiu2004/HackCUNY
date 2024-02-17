@@ -26,35 +26,38 @@ const SignUp = () => {
     };
 
     return (
-        <div className="sign-in-container">
-            <form onSubmit={signUp}>
-                <h1>Create Account</h1>
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                ></input>
+        <div className='sign-in-body'>
+            <div className="sign-in-container">
+                <form className="sign-in-form" onSubmit={signUp}>
+                    <h1>Create Account</h1>
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    ></input>
 
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                ></input>
+                    <input
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    ></input>
 
-                <input
-                    type="password"
-                    placeholder="Confirm your password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                ></input>
+                    <input
+                        type="password"
+                        placeholder="Confirm your password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    ></input>
 
-                {error && <p className="error-message">{error}</p>}
+                    {error && <p className="error-message">{error}</p>}
 
-                <button type="submit">Sign Up</button>
-            </form>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
         </div>
+
     );
 };
 
