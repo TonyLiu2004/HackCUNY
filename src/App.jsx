@@ -8,6 +8,8 @@ import SignIn from './components/SignIn'
 import './App.css';
 import SignUp from './components/Signup';
 import { UserAuth } from './components/UserAuth';
+import CreatePost from './components/CreatePost';
+import ReadPost from './components/ReadPosts';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path='/create-post' element={<CreatePost/>} />
         </Routes>
+        <ReadPost/>
       </UserAuth>
     </BrowserRouter>
   )
