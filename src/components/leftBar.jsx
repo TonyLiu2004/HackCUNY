@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import Profile from './profile';
-
+import './leftBar.css';
 export default function LeftBar() {
     function createPost () {
         window.location.href = '/create-post'

@@ -11,12 +11,13 @@ import { UserAuth } from './components/UserAuth';
 import CreatePost from './components/CreatePost';
 import YourPosts from './components/YourPosts'
 import UpdatePost from './components/UpdatePost';
-
+import LeftBar from './components/leftBar';
 function App() {
   return (
     <BrowserRouter>
       <UserAuth>
         <Navbar />
+        <LeftBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />

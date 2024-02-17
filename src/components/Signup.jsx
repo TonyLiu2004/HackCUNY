@@ -19,6 +19,7 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 console.log(userCredential);
+                alert("Account created!");
             })
             .catch((error) => {
                 console.log(error);

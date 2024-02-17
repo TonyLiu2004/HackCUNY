@@ -6,7 +6,6 @@ import ReadPost from './ReadPosts';
 function Events(){
     return(
         <div className='event-page'>
-            <LeftBar/>
             <ReadPost/>
         </div>
     )
