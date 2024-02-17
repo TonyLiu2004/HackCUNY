@@ -55,7 +55,7 @@ function CreatePost() {
             return;
         }
 
-        if (location != "   ") {
+        if (location != "") {
             // Upload image to Firebase Storage
             const imageRef = ref(storage, `images/${image.name}`);
             await uploadImage(imageRef);
