@@ -16,3 +16,8 @@
     text-align: center;
     padding:20px;
 }
+
+#nav-center{
+    display:flex;
+    justify-content: space-around;
+}
