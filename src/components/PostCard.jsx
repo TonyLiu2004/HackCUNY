@@ -19,7 +19,7 @@ function PostCard({ post }) {
         <img className='post-image' src={imageURL} alt="Event" />
       </div>
       <div className = "text-content">
-        <span class = "bold">Event: </span> 
+        <span className = "bold">Event: </span> 
         {event}
         </div>
       <div className = "text-content">
