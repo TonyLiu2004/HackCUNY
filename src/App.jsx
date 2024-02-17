@@ -6,6 +6,7 @@ import Events from './components/Events'
 import Map from './components/Map'
 import SignIn from './components/SignIn'
 import './App.css';
+import SignUp from './components/Signup';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/map" element={<Map />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
   </BrowserRouter>
   )
