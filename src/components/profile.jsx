@@ -6,7 +6,7 @@ function Profile() {
 
     return (
         <div className="profile-container">
-            <img className="profile-icon" src="https://p1.hiclipart.com/preview/843/601/229/avatar-icon-human-icon-person-icon-profile-icon-worker-icon-white-png-clipart.jpg" ></img>
+            <img className="profile-icon" src="assets\wanderer-profile-icon.png" ></img>
 
             <div>
                 {authUser ? (
