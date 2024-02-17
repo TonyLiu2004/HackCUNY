@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { database } from "../firebase"; // Import firestore from firebase
 import './PostCard.css';
 
 function PostCard({ post }) {
