@@ -1,11 +1,12 @@
 #nav-container {
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s ease-in-out;
     position: absolute;
     top: 0;
     display:flex;
     justify-content:space-between;
     width:100%;
+    background: #010101;
 }
 
 #nav-container:hover {
