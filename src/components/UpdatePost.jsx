@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { storage, database } from "../firebase";
 import { ref, deleteObject, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+import "./UpdatePost.css"
 
 function UpdatePost() {
   const { id } = useParams(); // Get the post ID from URL parameter
@@ -89,11 +90,11 @@ function UpdatePost() {
   };
 
   return (
-    <div>
-      <h2>Update Post</h2>
+    <div className = "update-body">
+      <h1>Update Post</h1>
       {post && (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="event">Event:</label>
+          <label className = "label" htmlFor="event">Event: </label>
           <input
             type="text"
             id="event"
@@ -101,14 +102,14 @@ function UpdatePost() {
             value={formData.event}
             onChange={handleInputChange}
           />
-          <label htmlFor="image">Image:</label>
+          <label className = "label" htmlFor="image">Image: </label>
           <input 
             type="file" 
             id="image" 
             accept="image/*" 
             onChange={handleImageChange} 
           />
-          <label htmlFor="location">Location:</label>
+          <label className = "label" htmlFor="location">Location: </label>
           <input
             type="text"
             id="location"
@@ -116,7 +117,7 @@ function UpdatePost() {
             value={formData.location}
             onChange={handleInputChange}
           />
-          <label htmlFor="eventTime">Event Time:</label>
+          <label className = "label" htmlFor="eventTime">Event Time: </label>
           <input
             type="datetime-local"
             id="eventTime"
@@ -124,7 +125,7 @@ function UpdatePost() {
             value={formData.eventTime}
             onChange={handleInputChange}
           />
-          <label htmlFor="description">Description:</label>
+          <label className = "label"htmlFor="description">Description: </label>
           <input
             type="text"
             id="description"
@@ -132,7 +133,7 @@ function UpdatePost() {
             value={formData.description}
             onChange={handleInputChange}
           />
-          <button type="submit">Update Post</button>
+          <button type="submit">Update Post </button>
         </form>
       )}
     </div>
