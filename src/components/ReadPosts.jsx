@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
-
+import './ReadPosts.css'
 function ReadPost() {
   const [posts, setPosts] = useState([]);
   const [sortBy, setSortBy] = useState({ field: "datePosted", order: "desc" });
@@ -41,7 +41,7 @@ function ReadPost() {
   };
 
   return (
-    <div>
+    <div id = "main-container">
       <h2>Posts</h2>
       <div>
         <label htmlFor="sortSelect">Sort by:</label>
@@ -54,6 +54,7 @@ function ReadPost() {
           <option value="asc">Ascending</option>
         </select>
       </div>
+      <br/>
       {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}

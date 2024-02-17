@@ -1,18 +1,21 @@
 .leftBar{
-    position: sticky;
-    top: 3.6rem;
+    position: fixed;
+    top: 0;
+    left: 0;
     background: #253539;
-    height: calc(100vh-3.6rem);
     overflow: auto;
-
+    height:100%;
+    width:10vw;
 }
 .leftBar::-webkit-scrollbar{
     display: none;
 }
 
 .left-container{
+    height:100vh;
     width: 80%;
-    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
 }
 .left-container .user{
     margin-top: 20px;
@@ -32,4 +35,8 @@ hr{
     border: none;
     height: .4px;
     margin-bottom: 20px;
+}
+
+.item{
+    align-items: left;
 }

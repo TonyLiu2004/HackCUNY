@@ -3,7 +3,7 @@ import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
 import { useAuth } from './UserAuth';
-import LeftBar from "./leftBar";
+import './YourPosts.css';
 
 function YourPosts() {
     const { authUser } = useAuth();

@@ -23,7 +23,7 @@ function UpdatePost() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setPost(docSnap.data());
-          setFormData(docSnap.data()); // Pre-fill form with post details
+          setFormData(docSnap.data());
         } else {
           console.log("No such document!");
         }
@@ -64,30 +64,30 @@ function UpdatePost() {
   
         // Upload the new image to Firebase Storage
         const imageRef = ref(storage, `images/${image.name}`);
-        await uploadImage(imageRef);
+        const newImageURL = await uploadImage(imageRef);
   
-        // Get download URL for the uploaded image
-        const newImageURL = await getDownloadURL(imageRef);
-  
-        // Update imageURL in form data
-        setFormData((prevData) => ({
-          ...prevData,
-          imageURL: newImageURL,
-        }));
+        // Update imageURL in formData directly
+        formData.imageURL = newImageURL;
       }
   
       // Update the post document in Firestore
       await updateDoc(docRef, formData);
       console.log("Post updated successfully!");
+      window.alert("Post updated successfully!");
+      window.location.href = '/your-posts'; 
     } catch (error) {
       console.error("Error updating post:", error);
     }
   };
   
-
+  
   const uploadImage = async (imageRef) => {
+    // Upload the image to Firebase Storage
     await uploadBytesResumable(imageRef, image);
-};
+  
+    // Get download URL for the uploaded image
+    return await getDownloadURL(imageRef);
+  };
 
   return (
     <div className = "update-body">
