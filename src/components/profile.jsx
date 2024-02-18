@@ -11,7 +11,7 @@ function Profile() {
             <div>
                 {authUser ? (
                     <>
-                        <h4>{`${authUser.email}`}</h4>
+                        <h4 style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '90px' }}>{`${authUser.email}`}</h4>
                     </>
                 ) : (
                     <h4>Guest</h4>
