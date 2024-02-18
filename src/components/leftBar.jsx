@@ -4,7 +4,7 @@ import Profile from './profile';
 import './leftBar.css';
 export default function LeftBar() {
     function createPost () {
-        window.location.href = './create-post'
+        window.location.href = '/create-post'
     }
 
     return (
@@ -43,6 +43,7 @@ export default function LeftBar() {
                     <hr />
                 <div className="create-btn">
                     <button onClick={createPost}>Create Post</button>
+                    <Link to='/create-post'>Create Post</Link>
                 </div>
             </div>
         </div>
