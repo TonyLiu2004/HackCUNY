@@ -42,8 +42,8 @@ function ReadPost() {
 
   return (
     <div id = "main-container">
-      <h2>Posts</h2>
-      <div>
+      <br/><br/>
+      <div id="sort-container">
         <label htmlFor="sortSelect">Sort by:</label>
         <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
           <option value="datePosted">Date Posted</option>

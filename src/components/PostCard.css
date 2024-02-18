@@ -6,9 +6,9 @@
     color: white;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-bottom: 60px;
     box-shadow: 10px 10px rgb(51, 27, 175);
     margin:0 auto;
+    margin-bottom: 60px;
 }
 
 .post-image {
@@ -47,3 +47,21 @@
 }
 
 
+#title-box{
+    display:flex;
+    justify-content: space-between;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+}
+
+#post-title{
+    font-size: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+    padding-left:20px;
+    padding-bottom:5px;
+}

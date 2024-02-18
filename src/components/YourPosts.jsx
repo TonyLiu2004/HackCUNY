@@ -93,7 +93,8 @@ function YourPosts() {
                     <div key={post.id}>
                         <PostCard post={post} />
                         <button onClick={() => handleEditPost(post.id)}>Edit</button>
-                        <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+                        <button style={{color:'red'}} onClick={() => handleDeletePost(post.id)}>Delete</button>
+                        <br/><br/>
                     </div>
                 ))}
             </div>
