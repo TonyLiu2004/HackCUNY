@@ -1,12 +1,13 @@
 import React from "react";
 import { useAuth } from './UserAuth'
+import profile_icon from '../../assets/wanderer-profile-icon.png'
 
 function Profile() {
     const { authUser, userSignOut } = useAuth();
 
     return (
         <div className="profile-container">
-            <img className="profile-icon" src="assets\wanderer-profile-icon.png" ></img>
+            <img className="profile-icon" src={profile_icon} ></img>
 
             <div>
                 {authUser ? (

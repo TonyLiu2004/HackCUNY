@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     margin-top: 70px;
-    background-color: #646cff;
+
     padding-top: 10px;
     padding-bottom: 30px;
     font-weight: bold;
@@ -14,8 +14,8 @@
     width: 600px;
     margin:0 auto;
     align-items: center; 
-    background-color: white;
-    color: #646cff;
+    background-color: #0B3D91;
+    color: white;
     border-radius: 25px;
 }
 
