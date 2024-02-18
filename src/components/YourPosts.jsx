@@ -8,7 +8,7 @@ import './YourPosts.css';
 function YourPosts() {
     const { authUser } = useAuth();
     const [posts, setPosts] = useState([]);
-    const [sortBy, setSortBy] = useState({ field: "datePosted", order: "desc" }); 
+    const [sortBy, setSortBy] = useState({ field: "datePosted", order: "desc" });
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -56,7 +56,7 @@ function YourPosts() {
 
     const handleSortChange = (e) => {
         const { name, value } = e.target;
-        setSortBy({ ...sortBy, [name]: value }); 
+        setSortBy({ ...sortBy, [name]: value });
     };
 
     const handleDeletePost = async (postId) => {
@@ -79,24 +79,25 @@ function YourPosts() {
             <div className="your-posts">
                 <h2>Your Posts</h2>
                 <div>
-                    <label htmlFor="sortSelect">Sort by:</label>
                     <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
-                        <option value="datePosted">Date Posted</option>
-                        <option value="eventTime">Event Time</option>
+                        <option value="datePosted">Sort By: Date Posted</option>
+                        <option value="eventTime">Sort By:Event Time</option>
                     </select>
                     <select name="order" value={sortBy.order} onChange={handleSortChange}>
                         <option value="desc">Descending</option>
                         <option value="asc">Ascending</option>
                     </select>
                 </div>
-                {posts.map(post => (
-                    <div key={post.id}>
-                        <PostCard post={post} />
-                        <button onClick={() => handleEditPost(post.id)}>Edit</button>
-                        <button style={{color:'red'}} onClick={() => handleDeletePost(post.id)}>Delete</button>
-                        <br/><br/>
-                    </div>
-                ))}
+                <div className="post-card-container">
+                    {posts.map(post => (
+                        <div key={post.id}>
+                            <PostCard post={post} />
+                            <button onClick={() => handleEditPost(post.id)}>Edit</button>
+                            <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </div>
 

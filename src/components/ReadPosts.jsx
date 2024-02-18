@@ -46,8 +46,8 @@ function ReadPost() {
       <div id="sort-container">
         <label htmlFor="sortSelect">Sort by:</label>
         <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
-          <option value="datePosted">Date Posted</option>
-          <option value="eventTime">Event Time</option>
+          <option value="datePosted">Sort By: Date Posted</option>
+          <option value="eventTime">Sort By: Event Time</option>
         </select>
         <select name="order" value={sortBy.order} onChange={handleSortChange}>
           <option value="desc">Descending</option>
@@ -55,9 +55,12 @@ function ReadPost() {
         </select>
       </div>
       <br/>
-      {posts.map(post => (
+      <div className="post-card-container">
+        {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
+      </div>
+      
     </div>
   );
 }

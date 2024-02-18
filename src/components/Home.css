@@ -8,11 +8,12 @@
 .content {
     width: 50%;
     align-items: center;
+    text-align: left;
     margin: auto;
     display: grid;
     grid-template-columns: 80% 20%;
 }
 
-image {
-    margin-left: auto;
+.image {
+    margin-left: 30%;
 }
