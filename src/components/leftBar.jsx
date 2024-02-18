@@ -4,7 +4,7 @@ import Profile from './profile';
 import './leftBar.css';
 export default function LeftBar() {
     function createPost () {
-        window.location.href = '/create-post'
+        window.location.href = './create-post'
     }
 
     return (

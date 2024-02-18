@@ -8,7 +8,7 @@ import SignIn from './components/SignIn'
 import './App.css';
 import SignUp from './components/Signup';
 import { UserAuth } from './components/UserAuth';
-import CreatePosts from './components/CreatePosts';
+import CreatePost from './components/CreatePost';
 import YourPosts from './components/YourPosts'
 import UpdatePost from './components/UpdatePost';
 import LeftBar from './components/leftBar';
@@ -26,7 +26,7 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path='/create-post' element={<CreatePosts/>} />
+          <Route path='/create-post' element={<CreatePost/>} />
           <Route path='/your-posts' element={<YourPosts/>} />
           <Route path='/edit/:id' element={<UpdatePost />} />
           <Route path='/view/:id' element={<ViewPost/>} />
