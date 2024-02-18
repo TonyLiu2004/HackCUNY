@@ -1,19 +1,20 @@
 .container {
+    padding-top: 40px;
     width: 100vw;
-    padding-top:30px;
     margin: 0 auto;
-    color: azure;
 }
 
 .content {
-    width: 50%;
-    align-items: center;
-    text-align: left;
+    width: 70%;
+    /* Adjust width as needed */
     margin: auto;
-    display: grid;
-    grid-template-columns: 80% 20%;
+    display: flex;
+    flex-direction: column;
+    /* Change to column layout */
+    align-items: center;
+    /* Center align content */
 }
 
-.image {
-    margin-left: 30%;
+.content p {
+    font-size: larger;
 }
