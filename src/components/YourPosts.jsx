@@ -77,7 +77,7 @@ function YourPosts() {
         <div className="your-posts-page">
             {/** <LeftBar /> **/}
             <div className="your-posts">
-                <h2>Your Posts</h2>
+                <h1>Your Posts</h1>
                 <div>
                     <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
                         <option value="datePosted">Sort By: Date Posted</option>

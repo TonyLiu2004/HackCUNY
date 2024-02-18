@@ -9,6 +9,7 @@ function Navbar() {
     return (
         <nav id="nav-container">
             <Link className='navLink' to='/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
+            <img className="logo-icon" src = "assets\logo.png"></img>
             <div id="nav-center">
                 <Link className='navLink' to='/'>Home</Link>
                 <Link className='navLink' to='/events'>Events</Link>
