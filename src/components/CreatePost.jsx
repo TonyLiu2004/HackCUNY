@@ -85,11 +85,8 @@ function CreatePost() {
     const addPostToFirestore = async (imageURL) => {
         const datePosted = new Date().toISOString();
 
-        if (authUser.email != "") {
-            setUserEmail(authUser.email); 
-        }
         await addDoc(collection(database, "posts"), {
-            userEmail: authUser.email !== "" ? authUser.email : userEmail,
+            userEmail: authUser && authUser.email !== "" ? authUser.email : "Guest",
             event,
             location,
             description,
