@@ -19,7 +19,7 @@ function CreatePost() {
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: API_KEY,
         libraries: libraries,
-
+ 
     })
     if (!isLoaded) {
         return <div>Loading...</div>;
