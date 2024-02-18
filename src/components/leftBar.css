@@ -32,7 +32,9 @@
 .left-container .item img{
     width: 28px;
 }
-
+.profile-container:hover {
+    background: #262b2b;
+}
 hr{
     background: #88bdbc;
     border: none;
