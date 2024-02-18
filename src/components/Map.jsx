@@ -192,8 +192,8 @@ function Map(){
                         <div>
                             <p style={{ color: 'black', fontWeight:'bold'}}>{open.name}</p>
                             <p style={{ color: 'black'}}>{open.title}</p>
-                            <p>{formatTime(open.time)}</p>
-                            <p>{open.description}</p>
+                            <p style={{ color: 'black'}}>{formatTime(open.time)}</p>
+                            <p style={{ color: 'black'}}>{open.description}</p>
                         </div>
                         </InfoWindow>
                     }
