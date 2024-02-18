@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './PostCard.css';
 
 function PostCard({ post }) {
@@ -30,6 +30,11 @@ function PostCard({ post }) {
       <div className = "text-content">
         {description}
       </div>
+      <h3 className="text-content">{event}</h3>
+      <div className="text-content">{location}</div>
+      {eventTime && <div className="text-content">Event Time: {new Date(eventTime).toLocaleString()}</div>}
+      <div className="text-content">{description}</div>
+      <div className="text-content">Date Posted: {new Date(datePosted).toLocaleString()}</div>
     </div>
   );
 }
