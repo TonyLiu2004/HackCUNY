@@ -54,11 +54,11 @@
     background-color: #0056b3;
 }
 
-.sign-in-container p {
+.sign-in-container p{
     margin-top: 10px;
     text-align: center;
-}
-
-p {
     color: black;
+}
+.sign-in-container a {
+    color: blue;
 }
