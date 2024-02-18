@@ -22,3 +22,11 @@
     display:flex;
     justify-content: space-around;
 }
+
+.logo-icon {
+    position: absolute;
+    margin-left: 11%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }

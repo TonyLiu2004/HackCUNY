@@ -5,7 +5,7 @@
     background: #646cff;
     overflow: auto;
     height:100%;
-    width:18vw;
+    width:10vw;
 }
 .leftBar::-webkit-scrollbar{
     display: none;
