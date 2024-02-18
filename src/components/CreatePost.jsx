@@ -102,6 +102,7 @@ function CreatePost() {
     return (
         <div className="create-post-container">
             <h1>Create Post</h1>
+            {/* <h1>Create Post</h1>
             <form className="create-form" onSubmit={handleSubmit}>
                 <label htmlFor="eventInput">Event:</label>
                 <input
@@ -143,7 +144,7 @@ function CreatePost() {
                     required
                 />
                 <input type="submit" value="Submit" />
-            </form>
+            </form> */}
         </div>
     );
 }
