@@ -13,7 +13,7 @@ function PostCard({ post }) {
   } = post;
 
   return (
-    <div className="post-card">
+    <div className="post-card" >
       <h3 id="post-title" className="text-content">{event}</h3>
       <div id="post-date" className="text-content">{new Date(datePosted).toLocaleString()}</div>
       <div className="img-box">

@@ -12,6 +12,8 @@ import CreatePost from './components/CreatePost';
 import YourPosts from './components/YourPosts'
 import UpdatePost from './components/UpdatePost';
 import LeftBar from './components/leftBar';
+import ViewPost from './components/ViewPost'; 
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +29,7 @@ function App() {
           <Route path='/create-post' element={<CreatePost/>} />
           <Route path='/your-posts' element={<YourPosts/>} />
           <Route path='/edit/:id' element={<UpdatePost />} />
+          <Route path='/view/:id' element={<ViewPost/>} />
         </Routes>
       </UserAuth>
     </BrowserRouter>

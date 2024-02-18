@@ -3,6 +3,8 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { database } from "../firebase";
 import PostCard from "./PostCard";
 import './ReadPosts.css'
+import { Link } from "react-router-dom";
+
 function ReadPost() {
   const [posts, setPosts] = useState([]);
   const [sortBy, setSortBy] = useState({ field: "datePosted", order: "desc" });
@@ -33,15 +35,15 @@ function ReadPost() {
     };
 
     fetchPosts();
-  }, [sortBy]); 
+  }, [sortBy]);
 
   const handleSortChange = (e) => {
     const { name, value } = e.target;
-    setSortBy({ ...sortBy, [name]: value }); 
+    setSortBy({ ...sortBy, [name]: value });
   };
 
   return (
-    <div id = "main-container">
+    <div id="main-container">
       <h1>Posts</h1>
       <div>
         <select id="sortSelect" name="field" value={sortBy.field} onChange={handleSortChange}>
@@ -53,13 +55,16 @@ function ReadPost() {
           <option value="asc">Ascending</option>
         </select>
       </div>
-      <br/>
+      <br />
       <div className="post-card-container">
         {posts.map(post => (
-        <PostCard key={post.id} post={post} />
-      ))}
+          <div key={post.id}>
+            <PostCard post={post} />
+            <Link to={`/view/${post.id}`}><button>View Post</button></Link>
+          </div>
+        ))}
       </div>
-      
+
     </div>
   );
 }

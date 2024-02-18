@@ -4,6 +4,7 @@ import { database } from "../firebase";
 import PostCard from "./PostCard";
 import { useAuth } from './UserAuth';
 import './YourPosts.css';
+import { Link } from "react-router-dom";
 
 function YourPosts() {
     const { authUser } = useAuth();
@@ -93,6 +94,7 @@ function YourPosts() {
                         <div key={post.id}>
                             <PostCard post={post} />
                             <button onClick={() => handleEditPost(post.id)}>Edit</button>
+                            <Link to={`/view/${post.id}`}><button>View Post</button></Link>
                             <button onClick={() => handleDeletePost(post.id)}>Delete</button>
                         </div>
                     ))}
