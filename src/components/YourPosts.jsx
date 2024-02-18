@@ -70,10 +70,6 @@ function YourPosts() {
         }
     };
 
-    const handleEditPost = (postId) => {
-        window.location.href = `/edit/${postId}`;
-    };
-
     return (
         <div className="your-posts-page">
             {/** <LeftBar /> **/}
@@ -93,7 +89,7 @@ function YourPosts() {
                     {posts.map(post => (
                         <div key={post.id}>
                             <PostCard post={post} />
-                            <button onClick={() => handleEditPost(post.id)}>Edit</button>
+                            <Link to={`/edit/${post.id}`}><button>Edit</button></Link>
                             <Link to={`/view/${post.id}`}><button>View Post</button></Link>
                             <button onClick={() => handleDeletePost(post.id)}>Delete</button>
                         </div>

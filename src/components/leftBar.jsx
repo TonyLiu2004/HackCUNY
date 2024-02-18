@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 import Profile from './profile';
 import './leftBar.css';
 export default function LeftBar() {
-    function createPost () {
-        window.location.href = '/create-post'
-    }
 
     return (
         <div className = 'leftBar'>
@@ -42,7 +39,6 @@ export default function LeftBar() {
                 </div>
                     <hr />
                 <div className="create-btn">
-                    <button onClick={createPost}>Create Post</button>
                     <Link to='/create-post'>Create Post</Link>
                 </div>
             </div>
